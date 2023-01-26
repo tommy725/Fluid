@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dialog"
+            type="com.raycai.fluffie.ui.bottomsheet.ProductCategoryBottomSheetDialog" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_sheet_white_bg"
+        android:orientation="vertical"
+        android:paddingTop="32dp">
+
+        <TextView
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/txt_58"
+            android:textColor="@color/black"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+        <LinearLayout
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                android:id="@+id/tv1"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv1Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_59"
+                android:textColor="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv2Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_60"
+                android:textColor="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv3Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_61"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv4"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv4Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_62"
+                android:textColor="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv5Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_63"
+                android:textColor="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv6"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv6Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_64"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv7"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv7Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_65"
+                android:textColor="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv8"
+                android:textSize="12sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv8Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_66"
+                android:textColor="@color/gray" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:fontFamily="@font/roboto_regular"
+                android:background="@drawable/rounded_rectangle_gray"
+                android:gravity="center"
+                android:onClick="@{dialog.onTv9Clicked}"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/txt_67"
+                android:textColor="@color/gray" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShow"
+            android:layout_marginTop="32dp"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="@{dialog.onBtnShowClicked}"
+            android:text="@string/txt_68"
+            android:textAllCaps="false"
+            android:letterSpacing="0.0"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+</layout>
+

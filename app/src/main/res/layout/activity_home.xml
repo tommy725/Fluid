@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="activity"
+            type="com.raycai.fluffie.HomeActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <FrameLayout
+            android:id="@+id/fragmentContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/layoutBottomNav"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Bottom Navigation-->
+        <LinearLayout
+            android:id="@+id/layoutBottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/bottom_nav_bg"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Home -->
+            <LinearLayout
+                android:id="@+id/layoutHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{activity.onHomeClicked}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivHome"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_home"
+                    app:tint="@color/bottom_nav_default" />
+
+                <TextView
+                    android:id="@+id/tvHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Home"
+                    android:textColor="@color/bottom_nav_default"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Browse -->
+            <LinearLayout
+                android:id="@+id/layoutBrowse"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{activity.onSearchClicked}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivBrowse"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_search"
+                    app:tint="@color/bottom_nav_default" />
+
+                <TextView
+                    android:id="@+id/tvBrowse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Browse"
+                    android:textColor="@color/bottom_nav_default"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Add -->
+            <LinearLayout
+                android:id="@+id/layoutAdd"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivAdd"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{activity.onAddClicked}"
+                    android:src="@drawable/ic_add" />
+            </LinearLayout>
+
+            <!-- Index -->
+            <LinearLayout
+                android:id="@+id/layoutIndex"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{activity.onIndexClicked}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivIndex"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_msg"
+                    app:tint="@color/bottom_nav_default" />
+
+                <TextView
+                    android:id="@+id/tvIndex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Index"
+                    android:textColor="@color/bottom_nav_default"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Profile -->
+            <LinearLayout
+                android:id="@+id/layoutProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:onClick="@{activity.onProfileClicked}"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_profile"
+                    app:tint="@color/bottom_nav_default" />
+
+                <TextView
+                    android:id="@+id/tvProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Profile"
+                    android:textColor="@color/bottom_nav_default"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

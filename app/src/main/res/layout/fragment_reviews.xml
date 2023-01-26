@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.home.product.reviews.ReviewsViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.home.product.reviews.ReviewsFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{fragment.onFilterAllClicked}">
+
+                <TextView
+                    android:id="@+id/tvFilterAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="All"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="@{fragment.onFilterTrendingClicked}">
+
+                <TextView
+                    android:id="@+id/tvFilterTrending"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Trending"
+                    android:textColor="@color/disable_gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{fragment.onFilterVideoClicked}">
+
+                <TextView
+                    android:id="@+id/tvVideoFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Video"
+                    android:textColor="@color/disable_gray"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/ivFilterVideo"
+                    android:layout_width="14dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/ic_video_filter"
+                    app:tint="@color/disable_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{fragment.onFilterAudioClicked}">
+
+                <TextView
+                    android:id="@+id/tvAudioFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Audio"
+                    android:textColor="@color/disable_gray"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/ivAudioFilter"
+                    android:layout_width="14dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="6dp"
+                    android:src="@drawable/ic_audio_filter"
+                    app:tint="@color/disable_gray" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingTop="24dp" />
+
+    </LinearLayout>
+</layout>
+
+

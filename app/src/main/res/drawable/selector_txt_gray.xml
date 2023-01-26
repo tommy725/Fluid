@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:enterFadeDuration="400"
+    android:exitFadeDuration="400">
+    <item android:color="@color/rose" android:state_pressed="true" /> <!-- pressed -->
+    <item android:color="@color/rose" android:state_focused="true" /> <!-- focused -->
+    <item android:color="@color/gray" /> <!-- default -->
+</selector>

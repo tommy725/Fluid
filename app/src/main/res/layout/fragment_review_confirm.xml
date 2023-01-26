@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.home.product.reviewconfirm.ReviewConfirmViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.home.product.reviewconfirm.ReviewConfirmFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:id="@+id/ivBack"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:onClick="@{fragment.goBack}"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_back_white" />
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        style="@style/TextView.Normal.White"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:paddingRight="50dp"
+                        android:text="New Review"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="8dp" />
+
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/dotsIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    app:dotsColor="@color/gray"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="6dp"
+                    app:dotsSpacing="3dp"
+                    app:dotsWidthFactor="2.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewPager"
+                    app:selectedDotColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvRateText"
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@={viewmodel.ratingText}" />
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/materialRatingBar"
+                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:progressBackgroundTint="@color/white"
+                    android:progressTint="@color/white"
+                    android:rating="0"
+                    android:secondaryProgressTint="@color/white" />
+
+                <!-- Translation text-->
+                <LinearLayout
+                    android:id="@+id/layoutAudioText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="26dp">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Add a title for your audio review"
+                        android:inputType="textCapSentences"
+                        android:maxLength="80"
+                        android:maxLines="1"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/disable_gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:fontFamily="@font/roboto_regular"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Reviews can't be edited once posted. Make sure you've got everything right! "
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnReset"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="24dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:letterSpacing="0.01"
+                    android:onClick="@{fragment.onPostClicked}"
+                    android:text="Post"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    app:iconSize="22dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
+
+

@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    namespace 'com.raycai.fluffie'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.raycai.fluffie"
+        minSdk 21
+        targetSdk 33
+        versionCode 12
+        versionName "1.0.11"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('fluffie_keystore.jks')
+            storePassword 'raycai'
+            keyAlias = 'fluffie'
+            keyPassword 'raycai'
+        }
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            firebaseCrashlytics {
+                mappingFileUploadEnabled true
+            }
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    //lifecycle
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    //Country code picker
+    implementation 'com.hbb20:ccp:2.6.1'
+    //Circle ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    //Flex box
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+    //Start rating
+    implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
+    //Dot indicator for view pager
+    implementation 'com.tbuonomo:dotsindicator:4.3'
+    //image and video picker
+    implementation 'io.ak1.pix:piximagepicker:1.6.3'
+    //Glide image loading
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    //record button
+    implementation 'com.github.3llomi:RecordView:3.1.2'
+    //Runtime permissions
+    implementation 'com.guolindev.permissionx:permissionx:1.7.1'
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //display server image
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+}
+

@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.onboarding.createaccthree.CreateAccThreeViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.onboarding.createaccthree.CreateAccThreeFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_bg"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="@{fragment.goBack}"
+            android:padding="16dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivStep"
+            android:layout_width="100dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_step_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/btnFinish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivStep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center|top"
+                android:orientation="vertical"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp">
+
+                <TextView
+                    style="@style/TextView.Normal.Gray"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_36"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+                <TextView
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="16sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_37"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cOily"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onOilyClicked}"
+                        android:text="@string/txt_38"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cDry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onDryClicked}"
+                        android:text="@string/txt_39"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onNormalClicked}"
+                        android:text="@string/txt_40"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cSensitive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onSensitiveClicked}"
+                        android:text="@string/txt_41"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCombination"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCombinationClicked}"
+                        android:text="@string/txt_42"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cNotSure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onNotSureClicked}"
+                        android:text="@string/txt_43"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="16sp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_37"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon1Clicked}"
+                        android:text="@string/txt_45"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon2Clicked}"
+                        android:text="@string/txt_46"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon3Clicked}"
+                        android:text="@string/txt_47"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon4Clicked}"
+                        android:text="@string/txt_48"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon5Clicked}"
+                        android:text="@string/txt_49"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon6Clicked}"
+                        android:text="@string/txt_50"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon7Clicked}"
+                        android:text="@string/txt_51"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cCon8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onCon8Clicked}"
+                        android:text="@string/txt_52"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/white"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeColor="@color/chip_border"
+                        app:chipStrokeWidth="1dp" />
+                </com.google.android.material.chip.ChipGroup>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFinish"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:enabled="false"
+            android:fontFamily="@font/roboto_medium"
+            android:letterSpacing="0.01"
+            android:onClick="@{fragment.onFinishClicked}"
+            android:text="@string/txt_35"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

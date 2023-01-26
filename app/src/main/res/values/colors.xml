@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_variant">#F3F3F3</color>
+    <color name="status_bar">#403B3B</color>
+    <color name="rose">#FD7791</color>
+    <color name="gray">#404040</color>
+    <color name="lite_gray">#AFAFAF</color>
+    <color name="lite_blue">#54B5FF</color>
+    <color name="card_bg">#F9F9F9</color>
+    <color name="circle_border">#BCBCBC</color>
+    <color name="circle_select">#E1E1E1</color>
+    <color name="chip_border">#D9D9D9</color>
+    <color name="red">#ED0000</color>
+    <color name="filter_info_bg">#191515</color>
+    <color name="product_bg">#191515</color>
+    <color name="filter_bg">#FCCAD4</color>
+    <color name="green">#89DFAE</color>
+    <color name="heading_gray">#434343</color>
+    <color name="disable_gray">#8B8B8B</color>
+    <color name="gray_bg">#CBCBCB</color>
+
+    <color name="skin_tone_1">#F8F2EE</color>
+    <color name="skin_tone_2">#F4EAE2</color>
+    <color name="skin_tone_3">#F1E0C1</color>
+    <color name="skin_tone_4">#DAC6A6</color>
+    <color name="skin_tone_5">#A48A66</color>
+    <color name="skin_tone_6">#664D3E</color>
+    <color name="skin_tone_7">#3F382F</color>
+    <color name="skin_tone_8">#2E2B25</color>
+
+    <color name="bottom_nav_bg">#292929</color>
+    <color name="bottom_nav_default">#848484</color>
+
+    <!-- Image and video picker -->
+    <color name="video_counter_color_pix">#E53935</color>
+    <color name="primary_color_pix">#075e54</color>
+    <color name="primary_light_color_pix">#80075e54</color>
+    <color name="surface_color_pix">#ffffff</color>
+    <color name="text_color_pix">#807f7f</color>
+</resources>

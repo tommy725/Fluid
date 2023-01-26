@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.onboarding.prelogin.PreLoginViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.onboarding.prelogin.PreLoginFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_bg"
+        android:clickable="true"
+        android:focusable="true">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivLogoWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_logo_black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.40" />
+
+            <TextView
+                android:id="@+id/tv1"
+                style="@style/TextView.Normal.Gray"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/txt_2"
+                app:layout_constraintEnd_toEndOf="@+id/ivLogoWhite"
+                app:layout_constraintStart_toStartOf="@+id/ivLogoWhite"
+                app:layout_constraintTop_toBottomOf="@+id/ivLogoWhite" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="@{fragment.onSignUpClicked}"
+                android:text="@string/txt_3"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:letterSpacing="0.01"
+                app:icon="@drawable/ic_sms"
+                app:iconGravity="textStart"
+                app:iconSize="22dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="1dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/ic_line" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    style="@style/TextView.Normal.Gray"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="Or"
+                    android:textColor="#A7A7A7" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="16dp"
+                    android:src="@drawable/ic_line" />
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:onClick="@{fragment.onLoginClicked}"
+                android:text="@string/txt_4"
+                android:textAllCaps="false"
+                android:letterSpacing="0.01"
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                app:iconSize="22dp" />
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

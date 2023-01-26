@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.onboarding.createacctwo.CreateAccTwoViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.onboarding.createacctwo.CreateAccTwoFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_bg"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="@{fragment.goBack}"
+            android:padding="16dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivStep"
+            android:layout_width="100dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_step_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivStep">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center|top"
+                android:orientation="vertical"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp">
+
+                <TextView
+                    style="@style/TextView.Normal.Gray"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_27"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+                <TextView
+                    android:id="@+id/tvTrobleLogin"
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_29"
+                    android:textColor="@color/lite_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+                <!-- Gender -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivFemale"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:background="@drawable/gender_circle_normal"
+                            android:onClick="@{fragment.onFemaleClicked}"
+                            android:padding="24dp"
+                            android:src="@drawable/ic_female" />
+
+                        <TextView
+                            android:id="@+id/tvFemale"
+                            style="@style/TextView.Normal.Gray"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/txt_30"
+                            android:textColor="@color/lite_gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivMale"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:background="@drawable/gender_circle_normal"
+                            android:onClick="@{fragment.onMaleClicked}"
+                            android:padding="24dp"
+                            android:src="@drawable/ic_male" />
+
+                        <TextView
+                            android:id="@+id/tvMale"
+                            style="@style/TextView.Normal.Gray"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/txt_31"
+                            android:textColor="@color/lite_gray" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivNonBinary"
+                            android:layout_width="90dp"
+                            android:layout_height="90dp"
+                            android:background="@drawable/gender_circle_normal"
+                            android:onClick="@{fragment.onNonBinaryClicked}"
+                            android:padding="24dp"
+                            android:src="@drawable/ic_non_binary" />
+
+                        <TextView
+                            android:id="@+id/tvNonBinary"
+                            style="@style/TextView.Normal.Gray"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:gravity="center"
+                            android:lineSpacingExtra="4dp"
+                            android:text="@string/txt_32"
+                            android:textColor="@color/lite_gray" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="50dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_33"
+                    android:textColor="@color/lite_gray" />
+
+                <!-- Date of birth -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?selectableItemBackground"
+                    android:onClick="@{fragment.onSelectDobClicked}"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvDob"
+                        style="@style/TextView.Normal.Gray"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_regular"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Select date of birth"
+                        android:textColor="@color/lite_gray" />
+
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:padding="14dp"
+                        android:src="@drawable/ic_down" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:src="@drawable/ic_et_line" />
+
+
+                <TextView
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_gravity="left"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_34"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneOneClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_1"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneTwoClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_2"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone3"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneThreeClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_3"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone4"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneFourClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_4"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone5"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneFiveClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_5"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone6"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneSixClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_6"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone7"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneSevenClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_7"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvTone8"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="12dp"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{fragment.onSkinToneEightClicked}"
+                    app:cardBackgroundColor="@color/skin_tone_8"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/rose" />
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:enabled="false"
+            android:fontFamily="@font/roboto_medium"
+            android:letterSpacing="0.01"
+            android:onClick="@{fragment.onNextClicked}"
+            android:text="@string/txt_28"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

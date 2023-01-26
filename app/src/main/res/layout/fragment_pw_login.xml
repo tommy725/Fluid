@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.onboarding.pwlogin.PwLoginViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.onboarding.pwlogin.PwLoginFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/white_bg"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:onClick="@{fragment.goBack}"
+            android:padding="16dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/TextView.Normal.Gray"
+            android:layout_height="40dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:onClick="@{fragment.loginUsingPhoneNumber}"
+            android:text="@string/txt_14"
+            android:textColor="@drawable/selector_txt_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBack">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="60dp"
+                android:paddingBottom="60dp">
+
+                <TextView
+                    android:id="@+id/tv2"
+                    style="@style/TextView.Normal.Gray"
+                    android:fontFamily="@font/roboto_bold"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_4"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+                <TextView
+                    android:id="@+id/tv3"
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="32dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/txt_6"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+                <!-- Phone number -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp">
+
+                        <com.hbb20.CountryCodePicker
+                            android:id="@+id/countryCodePicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:textSize="14sp"
+                            app:ccp_autoDetectCountry="true"
+                            app:ccp_contentColor="@color/lite_gray"
+                            app:ccp_defaultPhoneCode="64"
+                            app:ccp_showFlag="false" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/line_h_rose" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etPhoneNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:cursorVisible="true"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/txt_7"
+                        android:inputType="number"
+                        android:maxLength="20"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@={viewmodel.mobileNo}"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/lite_gray"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:onClick="@{fragment.onPhoneNumberClearClicked}"
+                        android:src="@drawable/ic_et_close" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:src="@drawable/ic_et_line" />
+
+                <!-- Verification code -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:cursorVisible="true"
+                        android:fontFamily="@font/roboto_regular"
+                        android:hint="@string/txt_15"
+                        android:inputType="textPassword"
+                        android:maxLength="6"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="@={viewmodel.password}"
+                        android:textColor="@color/gray"
+                        android:textColorHint="@color/lite_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:src="@drawable/ic_et_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:onClick="@{fragment.onTermsClicked}"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbTerms"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="16dp"
+                        android:clickable="false"
+                        android:focusable="false" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvTerms"
+                        style="@style/TextView.Normal.Gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="80dp"
+                        android:layout_marginRight="16dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@string/txt_10"
+                        android:textColor="@color/lite_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnLogin"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:enabled="false"
+                    android:fontFamily="@font/roboto_medium"
+                    android:letterSpacing="0.01"
+                    android:onClick="@{fragment.onLoginClicked}"
+                    android:text="@string/txt_11"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    app:iconSize="22dp" />
+
+                <TextView
+                    android:id="@+id/tvTrobleLogin"
+                    style="@style/TextView.Normal.Gray"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="4dp"
+                    android:onClick="@{fragment.troubleLogin}"
+                    android:text="@string/txt_12"
+                    android:textColor="@drawable/selector_txt_gray"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

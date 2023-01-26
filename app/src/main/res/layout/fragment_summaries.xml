@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.home.product.summaries.SummariesViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.home.product.summaries.SummariesFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TextView.Normal.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:lineSpacingExtra="4dp"
+                android:text="Product Claims*" />
+
+            <ImageView
+                android:layout_width="20sp"
+                android:layout_height="20sp"
+                android:layout_marginLeft="16dp"
+                android:src="@drawable/ic_star" />
+
+            <TextView
+                style="@style/TextView.Normal.White"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="@font/roboto_regular"
+                android:lineSpacingExtra="4dp"
+                android:text="4.8" />
+        </LinearLayout>
+
+
+        <TextView
+            style="@style/TextView.Normal.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_light"
+            android:lineSpacingExtra="4dp"
+            android:text="www.mecca.co.nz • 631 reviews"
+            android:textColor="@color/lite_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            style="@style/TextView.Normal.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_light"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/txt_78"
+            android:textSize="12sp" />
+
+        <TextView
+            style="@style/TextView.Normal.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_light"
+            android:lineSpacingExtra="4dp"
+            android:text="Long term use (4+ weeks) • 61 reviews"
+            android:textColor="@color/lite_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            style="@style/TextView.Normal.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto_light"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/txt_79"
+            android:textSize="12sp" />
+
+        <TextView
+            style="@style/TextView.Normal.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_rectangle_rose_fill"
+            android:fontFamily="@font/roboto_regular"
+            android:lineSpacingExtra="4dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="4dp"
+            android:text="@string/txt_81"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/lite_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                style="@style/TextView.Normal.White"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="4dp"
+                android:text="20 yrs/Combo/Fair"
+                android:textColor="@color/rose"
+                android:textSize="14sp" />
+
+            <TextView
+                style="@style/TextView.Normal.White"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="8dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="4dp"
+                android:text="Apply skin profile"
+                android:textSize="12sp" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:trackTint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lite_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp">
+
+                    <TextView
+                        style="@style/TextView.Normal.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="bottom"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Pros"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="16dp"
+                        android:background="@color/green" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutPros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="20sp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingTop="24dp">
+
+                <LinearLayout
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/lite_gray" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp">
+
+                    <TextView
+                        style="@style/TextView.Normal.White"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="bottom"
+                        android:lineSpacingExtra="4dp"
+                        android:text="Cons"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="16dp"
+                        android:background="@color/rose" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutCons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/btn_white_bg"
+            android:foreground="?selectableItemBackground"
+            android:gravity="center"
+            android:onClick="@{fragment.onShowMoreClicked}">
+
+            <TextView
+                android:id="@+id/tvShowMore"
+                style="@style/TextView.Normal.White"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="Show More"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/ivShowArrow"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="8dp"
+                android:src="@drawable/ic_down"
+                app:tint="@color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
+
+

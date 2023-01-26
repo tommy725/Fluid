@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.home.product.review.ReviewViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.home.product.review.ReviewFragment" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:id="@+id/ivBack"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="?selectableItemBackgroundBorderless"
+                        android:onClick="@{fragment.goBack}"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_back_white" />
+
+                    <TextView
+                        android:id="@+id/tvTitle"
+                        style="@style/TextView.Normal.White"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:paddingRight="50dp"
+                        android:text="New Review"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/ivBack" />
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="8dp" />
+
+                <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                    android:id="@+id/dotsIndicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    app:dotsColor="@color/gray"
+                    app:dotsCornerRadius="8dp"
+                    app:dotsSize="6dp"
+                    app:dotsSpacing="3dp"
+                    app:dotsWidthFactor="2.5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/viewPager"
+                    app:selectedDotColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvRateText"
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@={viewmodel.ratingText}" />
+
+                <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                    android:id="@+id/materialRatingBar"
+                    style="@style/Widget.MaterialRatingBar.RatingBar"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp"
+                    android:progressBackgroundTint="@color/white"
+                    android:progressTint="@color/white"
+                    android:rating="0"
+                    android:secondaryProgressTint="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <!-- Translation text-->
+                    <LinearLayout
+                        android:id="@+id/layoutAudioText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="26dp"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="Tap anywhere to edit"
+                            android:textColor="@color/lite_gray"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/ivBack"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/ivBack" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etTranslation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:hint="Audio translation"
+                            android:lineSpacingExtra="4dp"
+                            android:maxLines="6"
+                            android:text="After recording the audio. Recorded file will be uploaded to backend service. The backend should translate audio to text through Google text to speech service or any other third-party service. The translated received from the response will display here."
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/gray"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <!-- Player and next Button -->
+                    <LinearLayout
+                        android:id="@+id/layoutPlayer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:orientation="vertical"
+                        android:paddingBottom="40dp"
+                        android:visibility="gone">
+
+                        <SeekBar
+                            android:id="@+id/seekBarTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:progress="0"
+                            android:progressBackgroundTint="@color/white" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <TextView
+                                android:id="@+id/tvCurrentTime"
+                                style="@style/TextView.Normal.White"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0:00"
+                                android:textAlignment="textStart"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvTotalTime"
+                                style="@style/TextView.Normal.White"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="0:00"
+                                android:textAlignment="textEnd"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="16dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="16dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivPlay"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:background="@drawable/record_bg"
+                                android:onClick="@{fragment.onPlayBtnClicked}"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_play" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnNext"
+                                style="@style/Widget.MaterialComponents.Button.Icon"
+                                android:layout_width="100dp"
+                                android:layout_height="50dp"
+                                android:fontFamily="@font/roboto_medium"
+                                android:letterSpacing="0.01"
+                                android:onClick="@{fragment.onNextClicked}"
+                                android:text="Next"
+                                android:textAllCaps="false"
+                                android:textSize="14sp"
+                                app:cornerRadius="20dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Recording view-->
+                    <com.devlomi.record_view.RecordView
+                        android:id="@+id/recordView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_toLeftOf="@id/recordButton"
+                        app:counter_time_color="@color/white"
+                        app:slide_to_cancel_arrow="@drawable/ic_back_white"
+                        app:slide_to_cancel_arrow_color="@color/white"
+                        app:slide_to_cancel_bounds="8dp"
+                        app:slide_to_cancel_margin_right="10dp"
+                        app:slide_to_cancel_text="Slide To Cancel" />
+
+                    <!-- Recording button-->
+                    <com.devlomi.record_view.RecordButton
+                        android:id="@+id/recordButton"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="60dp"
+                        android:background="@drawable/record_bg"
+                        android:padding="16dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_record" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
+
+

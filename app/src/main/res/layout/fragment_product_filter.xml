@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.home.productfilter.ProductFilterViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.home.productfilter.ProductFilterFragment" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bottom_sheet_white_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackgroundBorderless"
+                android:onClick="@{fragment.onCloseClicked}"
+                android:padding="24dp"
+                android:src="@drawable/ic_close" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/roboto_bold"
+                android:gravity="center_vertical"
+                android:text="@string/txt_69"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lite_gray" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/txt_72"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPriceRange"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="16sp"
+                    android:layout_marginRight="32dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:text="$5-$500+"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvPriceDesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="32dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:gravity="center_vertical"
+                    android:text="Most products are around $55 NZD"
+                    android:textColor="@color/lite_gray"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="-20dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_price_chart" />
+
+                <com.google.android.material.slider.RangeSlider
+                    android:id="@+id/rangeSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:valueFrom="5.0"
+                    android:valueTo="500.0"
+                    app:thumbColor="@color/white"
+                    app:values="@array/initial_range_slider_values" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@color/lite_gray" />
+
+                <!-- Benefits -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/txt_73"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="32dp"
+                    app:alignContent="stretch"
+                    app:alignItems="stretch"
+                    app:flexWrap="wrap">
+
+                    <TextView
+                        android:id="@+id/tvBenefit1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:foreground="?selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onSelectAllBenefitClicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="@string/txt_74"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onBenefit2Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="Vegan"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onBenefit3Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="Cruelty-free"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onBenefit4Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="Reef safe"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onBenefit5Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="Sulphate free"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onBenefit6Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="Paraben free"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvBenefit7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onBenefit7Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="Alcohol free"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@color/lite_gray" />
+
+                <!-- Review Sources -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/txt_75"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="32dp"
+                    app:alignContent="stretch"
+                    app:alignItems="stretch"
+                    app:flexWrap="wrap">
+
+                    <TextView
+                        android:id="@+id/tvRS1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:foreground="?selectableItemBackground"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onSelectAllReviewSources}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="@string/txt_74"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRS2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onRs2Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="www.fluffie.com"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRS3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onRs3Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="www.sephora.co.nz"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRS4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onRs4Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="www.paulaschoice.com.au"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRS5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onRs5Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="www.mecca.co.nz"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRS6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onRs6Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="www.ednibody.co.nz"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvRS7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/rounded_rectangle_gray"
+                        android:fontFamily="@font/roboto_light"
+                        android:gravity="center"
+                        android:onClick="@{fragment.onRs7Clicked}"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="6dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="6dp"
+                        android:text="www.hikoco.co.nz"
+                        android:textColor="@color/gray"
+                        android:textSize="14sp" />
+                </com.google.android.flexbox.FlexboxLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/lite_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearAll"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:letterSpacing="0.01"
+                android:onClick="@{fragment.onClearAllClicked}"
+                android:text="@string/txt_70"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:strokeColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShowProducts"
+                style="@style/Widget.MaterialComponents.Button.Icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto_medium"
+                android:letterSpacing="0.01"
+                android:onClick="@{fragment.onShowProductsClicked}"
+                android:stateListAnimator="@null"
+                android:text="Show 9556 products"
+                android:textAllCaps="false"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
+
+

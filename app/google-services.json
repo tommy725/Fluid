@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "107395816655",
+    "project_id": "fluffie",
+    "storage_bucket": "fluffie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107395816655:android:dc5728ef4c2f80d9a36bba",
+        "android_client_info": {
+          "package_name": "com.raycai.fluffie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107395816655-bsdc2bsme93vjekh30egt143orlhb7g0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raycai.fluffie",
+            "certificate_hash": "fdbb2d6c23e83f53d02d13d6f63a7078dbfd128d"
+          }
+        },
+        {
+          "client_id": "107395816655-qsc8eu14eevabn7ahv0gu77q8og44thl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raycai.fluffie",
+            "certificate_hash": "6aa90d51e2c42c997eeaf02943746820e352d1a4"
+          }
+        },
+        {
+          "client_id": "107395816655-rssisdg77n9ce3908v9m736ratgsrcem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmmqWLatV-R5kEY7kSRtPvO0O-_rL2yw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107395816655-rssisdg77n9ce3908v9m736ratgsrcem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

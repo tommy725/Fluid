@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.raycai.fluffie.ui.home.profile.ProfileViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.raycai.fluffie.ui.home.profile.ProfileFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/TextView.Normal.White"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:text="Profile"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfilePic"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/ic_default_profile"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="Person Name"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/tvProfileTxt"
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Person Name"
+                    android:textAlignment="center"
+                    android:textColor="@color/lite_gray"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEditProfile"
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Edit profile"
+                    android:letterSpacing="0.01"
+                    android:textAllCaps="false"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/gray" />
+
+                <TextView
+                    android:id="@+id/tvMostHelpfulTitle"
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="KATIE'S MOST HELPFUL"
+                    android:textColor="@color/lite_gray"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingLeft="16dp"
+                    android:textSize="14sp"
+                    android:paddingRight="16dp"
+                    android:text="Reviews" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvRoot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:backgroundTint="@color/gray"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?selectableItemBackground"
+                        app:cardCornerRadius="8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/ivProductImg"
+                                android:layout_width="120dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"
+                                android:paddingTop="8dp"
+                                android:paddingBottom="8dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ic_default_profile" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingLeft="16dp"
+                                android:paddingTop="16dp"
+                                android:paddingRight="16dp"
+                                android:paddingBottom="16dp">
+
+                                <TextView
+                                    android:id="@+id/tv1"
+                                    style="@style/TextView.Normal.White"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="Pretty strong retinol!"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tv2"
+                                    style="@style/TextView.Normal.White"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Jamie Daly • Oct 21"
+                                    android:textSize="12sp" />
+
+
+                                <TextView
+                                    android:id="@+id/tv3"
+                                    style="@style/TextView.Normal.White"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/roboto_bold"
+                                    android:text="Drunk Elephant"
+                                    android:textSize="13sp" />
+
+                                <TextView
+                                    android:id="@+id/tv4"
+                                    style="@style/TextView.Normal.White"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="A Passioni Cream"
+                                    android:textSize="12sp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <TextView
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:paddingLeft="16dp"
+                    android:textSize="14sp"
+                    android:paddingRight="16dp"
+                    android:text="Your reviews on" />
+
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cToners"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onTonersClicked}"
+                        android:text="Toners"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="@color/gray"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cSerums"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onSerumsClicked}"
+                        android:text="Serums"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="@color/gray"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cMoisturisers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onMoisturisersClicked}"
+                        android:text="Moisturisers"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="@color/gray"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeWidth="1dp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/cOils"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:fontFamily="@font/roboto_light"
+                        android:onClick="@{fragment.onOilsClicked}"
+                        android:text="Oils"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:chipBackgroundColor="@color/gray"
+                        app:chipCornerRadius="4dp"
+                        app:chipEndPadding="8dp"
+                        app:chipStartPadding="8dp"
+                        app:chipStrokeWidth="1dp" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <TextView
+                    android:id="@+id/tvNoReviews"
+                    style="@style/TextView.Normal.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="No reviews shared on any toners yet."
+                    android:textColor="@color/lite_gray"
+                    android:textSize="12sp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPostReview"
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/roboto_bold"
+                    android:onClick="@{fragment.onPostAReviewClicked}"
+                    android:text="Post a review"
+                    android:textAllCaps="false"
+                    android:letterSpacing="0.01"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:cornerRadius="25dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+
