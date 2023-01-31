@@ -14,6 +14,7 @@ import com.raycai.fluffie.data.model.UserReview
 import com.raycai.fluffie.http.response.ProductReviewsResponse
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
+import java.util.*
 
 class UserReviewAdapter(private val reviews: List<ProductReviewsResponse.ProductReview>) :
     RecyclerView.Adapter<UserReviewAdapter.ViewHolder>() {
@@ -53,8 +54,12 @@ class UserReviewAdapter(private val reviews: List<ProductReviewsResponse.Product
             tvName.text = ur.title
             tvBrand.text = ur.desc
             tvRating.text = "${ur.rating}"
-            val dobDisplay = SimpleDateFormat(Const.DATE_FORMAT_DISPLAY).format(ur.created_at)
-            tvTimeAgo.text = dobDisplay
+            try {
+                val dobDisplay = SimpleDateFormat(Const.DATE_FORMAT_DISPLAY).format(ur.created_at)
+                tvTimeAgo.text = dobDisplay
+            } catch (e: java.lang.Exception) {
+                tvTimeAgo.text = SimpleDateFormat(Const.DATE_FORMAT_DISPLAY).format(Date())
+            }
             cvRoot.setOnClickListener {
                 listener?.onUserReviewClicked(ur)
             }

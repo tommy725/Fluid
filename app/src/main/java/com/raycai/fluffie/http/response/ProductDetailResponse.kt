@@ -18,7 +18,7 @@ class ProductDetailResponse(status: Boolean) : BaseResponse(status) {
         var brand: Brand? = null
         var key_benefits: MutableList<KeyBenefit>? = null
         var ingredient = ""
-        var prod_claims: MutableList<String>? = null
+        var prod_claims: MutableList<Claim>? = null
         var created_at = ""
         var updated_at = ""
         var updatedAt = ""
@@ -60,6 +60,16 @@ class ProductDetailResponse(status: Boolean) : BaseResponse(status) {
             var _id = ""
             var id = ""
             var benefit = ""
+            var created_at = ""
+            var updated_at = ""
+        }
+
+        class Claim {
+            var _id = ""
+            var id = ""
+            var label = ""
+            var category = ""
+            var displaylabel = ""
             var created_at = ""
             var updated_at = ""
         }

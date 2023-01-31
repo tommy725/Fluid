@@ -12,8 +12,8 @@ import com.google.android.flexbox.FlexboxLayout
 import com.raycai.fluffie.R
 import com.raycai.fluffie.databinding.TvProductLabelBinding
 import com.raycai.fluffie.http.response.ProductListResponse
+import com.raycai.fluffie.util.Utils
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
 
 class ProductAdapter(private val products: List<ProductListResponse.ProductDetail>) :
@@ -58,25 +58,24 @@ class ProductAdapter(private val products: List<ProductListResponse.ProductDetai
                 tvBrand.text = ""
             }
 
-            tvRating.text = "${Math.round(p.rating)}"
+            tvRating.text = "${Utils.roundOffDecimal(p.rating)}"
             tvReview.text = "${p.total_reviews} reviews"
-            tvPrice.text = "${p.price}"
+            tvPrice.text = "$${p.price}"
 
-            val layoutInflater: LayoutInflater = itemView.context.getSystemService (Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            flLabels.removeAllViews()
+
+            val layoutInflater: LayoutInflater =
+                itemView.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             if (p.labels != null) {
-                p.labels!!.forEach {
+                p.labels!!.forEachIndexed { index, it ->
+                    if (index >= 4)
+                        return@forEachIndexed
+
                     val tvLabel = TvProductLabelBinding.inflate(layoutInflater)
                     tvLabel.root.text = it.label
                     flLabels.addView(tvLabel.root)
                 }
             }
-
-//            ivProductImg.setim setImageResource(p.imgRes)
-//            tvName.text = p.name
-//            tvBrand.text = p.brand
-//            tvRating.text = "${p.rating}"
-//            tvReview.text = "${p.reviews} reviews"
-//            tvPrice.text = p.price
 
             cvRoot.setOnClickListener {
                 listener?.onProductClicked(p)

@@ -20,6 +20,6 @@ class Const {
         val FCM_TOPIC_AUTO_BACKUP = "auto_backup"
 
         val API_URL = "http://13.127.125.105:5001"
-        val DEVELOPER_MODE = false
+        val DEVELOPER_MODE = true
     }
 }

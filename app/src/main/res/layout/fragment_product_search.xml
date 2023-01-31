@@ -170,7 +170,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="4dp"
                                 android:fontFamily="@font/roboto_regular"
-                                android:text="Moisturisers"
+                                android:text="Moisturizers"
                                 android:textColor="@color/white"
                                 android:textSize="12sp" />
                         </LinearLayout>
@@ -429,7 +429,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/roboto_regular"
                         android:gravity="center_vertical"
-                        android:text="Moisturisers"
+                        android:text="Moisturizers"
                         android:textColor="@color/white"
                         android:textSize="18sp" />
 
@@ -455,7 +455,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
 
-                        <include layout="@layout/li_product" />
+                        <include
+                            android:id="@+id/li1"
+                            layout="@layout/li_product" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -464,7 +466,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
 
-                        <include layout="@layout/li_product" />
+                        <include
+                            android:id="@+id/li2"
+                            layout="@layout/li_product" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -510,7 +514,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
 
-                        <include layout="@layout/li_product" />
+                        <include
+                            android:id="@+id/li3"
+                            layout="@layout/li_product" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -519,7 +525,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1">
 
-                        <include layout="@layout/li_product" />
+                        <include
+                            android:id="@+id/li4"
+                            layout="@layout/li_product" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

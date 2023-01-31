@@ -124,6 +124,9 @@ class ReviewsFragment : BaseFragment(), UserReviewAdapter.Listener {
     }
 
     private fun getReviews() {
+        if (activity == null)
+            return
+
         showProgress()
         Api().ApiClient().getProductReview((activity as HomeActivity).selectedProduct!!.id).enqueue(object : Callback<ProductReviewsResponse> {
             override fun onResponse(

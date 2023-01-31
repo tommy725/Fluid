@@ -263,7 +263,7 @@
                         android:layout_height="50dp"
                         android:fontFamily="@font/roboto_light"
                         android:onClick="@{fragment.onMoisturisersClicked}"
-                        android:text="Moisturisers"
+                        android:text="Moisturizers"
                         android:textColor="@color/white"
                         android:textSize="12sp"
                         app:chipBackgroundColor="@color/gray"

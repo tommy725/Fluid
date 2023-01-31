@@ -62,7 +62,7 @@ class ProductFragment() : BaseFragment() {
                     binding.tvBrand.text = it.brand!!.brand
 //                binding.ivProductImg.setImageResource(it.imgRes)
 //                binding.tvTitle.text = it.name
-                binding.tvDetail.text = it.details
+//                binding.tvDetail.text = it.details
             }
         }
     }

@@ -202,7 +202,7 @@ class BrowseFragment : BaseFragment(), ProductAdapter.Listener,
 
             viewModel.tabs.clear()
             viewModel.tabs.add("All")
-            if (viewModel.selectedProductCategory.value?.refind_category != null){
+            if (viewModel.selectedProductCategory.value?.refind_category != null) {
                 viewModel.selectedProductCategory.value?.refind_category!!.forEach {
                     viewModel.tabs.add(it.refined_category)
                 }
@@ -245,7 +245,7 @@ class BrowseFragment : BaseFragment(), ProductAdapter.Listener,
 
     override fun onProductCategoryClicked(productCategory: String) {
         (activity as HomeActivity).categoryList.forEach {
-            if (it.master_category.equals(productCategory)) {
+            if (it.master_category.contains(productCategory)) {
                 (activity as HomeActivity).selectedProductCategory = it
             }
         }
@@ -301,19 +301,36 @@ class BrowseFragment : BaseFragment(), ProductAdapter.Listener,
 
     private fun getProductList(subCategoryPosition: Int) {
         showProgress()
-        Api().ApiClient().getProductList().enqueue(object : Callback<ProductListResponse> {
+
+        var refinedCategoryId = ""
+        if (subCategoryPosition > 0) {
+            refinedCategoryId =
+                viewModel.selectedProductCategory.value!!.refind_category!![subCategoryPosition - 1]._id
+        }
+        Api().ApiClient().getProductList(2000).enqueue(object : Callback<ProductListResponse> {
             override fun onResponse(
                 call: Call<ProductListResponse>?,
                 response: Response<ProductListResponse>?
             ) {
                 hideProgress()
 
-                if (response!!.body().status) {
-//                    var filteredList: ArrayList<ProductListResponse.ProductDetail> = ArrayList()
-//                    response!!.body().data!!.forEach {
-//                        if (it.category)
-//                    }
-                    showProducts(response!!.body().data!!)
+                if (response!!.body() != null && response!!.body().status) {
+                    var filteredList: ArrayList<ProductListResponse.ProductDetail> = ArrayList()
+                    response!!.body().data!!.forEach {
+                        if (viewModel.selectedProductCategory.value != null &&
+                            it.master_category != null &&
+                            viewModel.selectedProductCategory.value!!._id.equals(it.master_category!!._id)
+                        ) {
+
+                            if (refinedCategoryId != null && refinedCategoryId.equals("") || refinedCategoryId.equals(
+                                    it.refind_category!!._id
+                                )
+                            ) {
+                                filteredList.add(it)
+                            }
+                        }
+                    }
+                    showProducts(filteredList)
                 } else
                     println("API parse failed")
             }
@@ -329,7 +346,7 @@ class BrowseFragment : BaseFragment(), ProductAdapter.Listener,
 
         // <editor-fold defaultstate="collapsed" desc="Filter Text Highlight">
         val wordtoSpan: Spannable =
-            SpannableString("We found ${list.count()} moisturisers that have the most reviews that mention reduced fine lines, good for dry skin and hydrated skin.")
+            SpannableString("We found ${list.count()} ${viewModel.selectedProductCategory.value!!.master_category} that have the most reviews that mention reduced fine lines, good for dry skin and hydrated skin.")
 
         val txt1: ClickableSpan = object : ClickableSpan() {
             override fun onClick(textView: View) {
@@ -375,7 +392,7 @@ class BrowseFragment : BaseFragment(), ProductAdapter.Listener,
             }
         }
 
-        val word1 = "${list.count()} moisturisers"
+        val word1 = "${list.count()} ${viewModel.selectedProductCategory.value!!.master_category}"
         val txt1Start = wordtoSpan.indexOf(word1)
         val txt1End = txt1Start + word1.length
         wordtoSpan.setSpan(txt1, txt1Start, txt1End, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)

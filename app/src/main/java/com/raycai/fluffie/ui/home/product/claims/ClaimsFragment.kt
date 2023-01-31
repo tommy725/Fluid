@@ -1,21 +1,16 @@
 package com.raycai.fluffie.ui.home.product.claims
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dam.bestexpensetracker.util.AppLog
 import com.raycai.fluffie.HomeActivity
 import com.raycai.fluffie.R
+import com.raycai.fluffie.base.BaseActivity
 import com.raycai.fluffie.base.BaseFragment
-import com.raycai.fluffie.databinding.FragmentBrowseBinding
 import com.raycai.fluffie.databinding.FragmentClaimsBinding
-import com.raycai.fluffie.databinding.FragmentHomeBinding
-import com.raycai.fluffie.databinding.FragmentProfileBinding
-import com.raycai.fluffie.ui.home.productsearch.ProductSearchFragment
 
 class ClaimsFragment : BaseFragment() {
 
@@ -51,14 +46,45 @@ class ClaimsFragment : BaseFragment() {
         }
         viewModel.selectedProduct.observeForever {
             var category = ""
-            if (it != null) {
+            if (isSafe() && it != null) {
                 if (it.refined_category != null) {
-                    category = it.refined_category!!.refined_category
                     if (it.refined_category!!.master_category_id != null) {
                         category = it.refined_category!!.master_category_id!!.master_category
                     }
+                    if (!category.isEmpty())
+                        category += "/"
+                    category += it.refined_category!!.refined_category
                 }
                 binding.tvCategory.text = category
+                binding.tvDesc.text = it.details
+
+                binding.tvVegan.text = resources.getString(R.string.txt_84)
+                binding.tvCruelty.text = resources.getString(R.string.txt_84)
+
+                var keyBenefit = ""
+                it.key_benefits!!.forEach{
+                    if (it.benefit.contains("Vegan")) {
+                        binding.tvVegan.text = (activity as BaseActivity).getString(R.string.txt_83)
+                    }
+                    if (it.benefit.contains("Cruelty-free")) {
+                        binding.tvCruelty.text = (activity as BaseActivity).getString(R.string.txt_83)
+                    }
+                    if (!keyBenefit.isEmpty()) {
+                        keyBenefit += ", "
+                    }
+                    keyBenefit += it.benefit
+                }
+                binding.tvBenefits.text = keyBenefit
+
+                var claims = ""
+                it.prod_claims!!.forEach {
+                    if (!claims.isEmpty()) {
+                        claims += ", "
+                    }
+                    claims += it.displaylabel
+                }
+
+                binding.tvClaims.text = claims
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.raycai.fluffie.ui.home.productsearch
 
+import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.Spannable
@@ -11,7 +12,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.ViewModelProvider
@@ -21,8 +21,12 @@ import com.raycai.fluffie.R
 import com.raycai.fluffie.base.BaseFragment
 import com.raycai.fluffie.data.model.Product
 import com.raycai.fluffie.databinding.FragmentProductSearchBinding
+import com.raycai.fluffie.databinding.TvProductLabelBinding
 import com.raycai.fluffie.http.Api
 import com.raycai.fluffie.http.response.CategoryListResponse
+import com.raycai.fluffie.http.response.ProductListResponse
+import com.raycai.fluffie.util.Utils
+import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -133,22 +137,6 @@ class ProductSearchFragment : BaseFragment() {
         binding.filterInfo.highlightColor = ContextCompat.getColor(requireContext(), R.color.white)
         // </editor-fold>
 
-        binding.l1.findViewById<CardView>(R.id.cvRoot).setOnClickListener {
-            loadProductFragment("")
-        }
-
-        binding.l2.findViewById<CardView>(R.id.cvRoot).setOnClickListener {
-            loadProductFragment("")
-        }
-
-        binding.l3.findViewById<CardView>(R.id.cvRoot).setOnClickListener {
-            loadProductFragment("")
-        }
-
-        binding.l4.findViewById<CardView>(R.id.cvRoot).setOnClickListener {
-            loadProductFragment("")
-        }
-
         //load temp data
         getCategoryList()
     }
@@ -165,7 +153,7 @@ class ProductSearchFragment : BaseFragment() {
     private fun loadProductSearchFragment(filter: String?) {
         if (filter != null) {
             (activity as HomeActivity).categoryList.forEach {
-                if (it.master_category.equals(filter)) {
+                if (it.master_category.contains(filter)) {
                     (activity as HomeActivity).selectedProductCategory = it
                 }
             }
@@ -180,7 +168,7 @@ class ProductSearchFragment : BaseFragment() {
     }
 
     fun onFilterByMoisturisersClicked(view: View) {
-        loadProductSearchFragment("Moisturisers")
+        loadProductSearchFragment("Moisturizers")
     }
 
     fun onFilterByTreatmentsClicked(view: View) {
@@ -255,6 +243,8 @@ class ProductSearchFragment : BaseFragment() {
                 if (response!!.body().status) {
                     (activity as HomeActivity).categoryList.clear()
                     (activity as HomeActivity).categoryList.addAll(response.body().data!!)
+
+                    getProductList()
                 } else
                     println("API parse failed")
             }
@@ -267,4 +257,162 @@ class ProductSearchFragment : BaseFragment() {
         })
     }
 
+
+    private fun getProductList() {
+        showProgress()
+        Api().ApiClient().getProductList(2000).enqueue(object : Callback<ProductListResponse> {
+            override fun onResponse(
+                call: Call<ProductListResponse>?,
+                response: Response<ProductListResponse>?
+            ) {
+                hideProgress()
+
+                if (response!!.body().status) {
+                    showProducts(response!!.body().data!!)
+                } else
+                    println("API parse failed")
+            }
+
+            override fun onFailure(call: Call<ProductListResponse>?, t: Throwable?) {
+                println(t!!.message)
+                hideProgress()
+            }
+        })
+    }
+
+    private fun showProducts(list: MutableList<ProductListResponse.ProductDetail>) {
+
+        // <editor-fold defaultstate="collapsed" desc="Filter Text Highlight">
+        val wordtoSpan: Spannable =
+            SpannableString("We found ${list.count()} moisturisers that have the most reviews that mention reduced fine lines, good for dry skin and hydrated skin.")
+
+        val txt1: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                setTextStyle(ds, colorRose, fontBold, false)
+            }
+        }
+
+        val txt2: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                setTextStyle(ds, colorWhite, fontLite, true)
+            }
+        }
+
+        val txt3: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                setTextStyle(ds, colorRose, fontBold, false)
+            }
+        }
+
+        val txt4: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(textView: View) {
+
+            }
+
+            override fun updateDrawState(ds: TextPaint) {
+                super.updateDrawState(ds)
+                setTextStyle(ds, colorRose, fontBold, false)
+            }
+        }
+
+        val word1 = "${list.count()} moisturisers"
+        val txt1Start = wordtoSpan.indexOf(word1)
+        val txt1End = txt1Start + word1.length
+        wordtoSpan.setSpan(txt1, txt1Start, txt1End, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        val word2 = "most reviews"
+        val txt2Start = wordtoSpan.indexOf(word2)
+        val txt2End = txt2Start + word2.length
+        wordtoSpan.setSpan(txt2, txt2Start, txt2End, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        val word3 = "reduced fine lines, good for dry skin"
+        val txt3Start = wordtoSpan.indexOf(word3)
+        val txt3End = txt3Start + word3.length
+        wordtoSpan.setSpan(txt3, txt3Start, txt3End, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        val word4 = "hydrated skin."
+        val txt4Start = wordtoSpan.indexOf(word4)
+        val txt4End = txt4Start + word4.length
+        wordtoSpan.setSpan(txt4, txt4Start, txt4End, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+
+        binding.filterInfo.text = wordtoSpan
+        binding.filterInfo.movementMethod = LinkMovementMethod.getInstance()
+        binding.filterInfo.highlightColor = ContextCompat.getColor(requireContext(), R.color.white)
+        // </editor-fold>
+
+        var filteredList = ArrayList<ProductListResponse.ProductDetail>()
+        list.forEach {
+            if (it.master_category != null && it.master_category!!.master_category != null) {
+                if (it.master_category!!.master_category.contains("Moisturizers")) {
+                    filteredList.add(it)
+                }
+                if (filteredList.size == 2)
+                    return@forEach
+            }
+        }
+        list.forEach {
+            if (it.master_category != null && it.master_category!!.master_category != null) {
+                if (it.master_category!!.master_category.contains("Treatments")) {
+                    filteredList.add(it)
+                }
+                if (filteredList.size == 4)
+                    return@forEach
+            }
+        }
+
+        val productViews = arrayOf(binding.li1, binding.li2, binding.li3, binding.li4)
+        productViews.forEachIndexed() { index, itemView ->
+//            itemView.root.visibility = Gone
+
+            if (filteredList.size < index + 1)
+                return@forEachIndexed
+
+            val p = filteredList[index]
+            Picasso.with(activity).load(p.img).into(itemView.ivProductImg)
+            itemView.tvName.text = p.title
+            if (p.brand != null) {
+                itemView.tvBrand.text = p.brand!!.brand
+            } else {
+                itemView.tvBrand.text = ""
+            }
+
+            itemView.tvRating.text = "${Utils.roundOffDecimal(p.rating)}"
+            itemView.tvReview.text = "${p.total_reviews} reviews"
+            itemView.tvPrice.text = "$${p.price}"
+
+            itemView.flLabels.removeAllViews()
+
+            val layoutInflater: LayoutInflater =
+                itemView.cvRoot.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            if (p.labels != null) {
+                p.labels!!.forEachIndexed { i, it ->
+                    if (i >= 4)
+                        return@forEachIndexed
+
+                    val tvLabel = TvProductLabelBinding.inflate(layoutInflater)
+                    tvLabel.root.text = it.label
+                    itemView.flLabels.addView(tvLabel.root)
+                }
+            }
+
+            itemView.cvRoot.setOnClickListener {
+                loadProductFragment(p.id)
+            }
+        }
+    }
 }

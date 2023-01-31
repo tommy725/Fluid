@@ -83,5 +83,7 @@
     <string name="txt_80">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
     <string name="txt_81">Powered by Fluffie\'s AI© ❤️</string>
     <string name="txt_82">Server error was occurred</string>
+    <string name="txt_83">Yes</string>
+    <string name="txt_84">No</string>
 
 </resources>

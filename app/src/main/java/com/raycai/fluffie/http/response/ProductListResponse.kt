@@ -14,6 +14,8 @@ class ProductListResponse(status: Boolean) : BaseResponse(status) {
         var brand: Brand? = null
         var labels: MutableList<Label>? = null
         var filtered_labels: MutableList<FilteredLabel>? = null
+        var refind_category: RefinedCategory? = null
+        var master_category: MasterCategory? = null
 
         var rating = 0.0
         var total_reviews = 0
@@ -40,4 +42,22 @@ class ProductListResponse(status: Boolean) : BaseResponse(status) {
         var label = ""
         var reviews = 0
     }
+    class RefinedCategory {
+        var _id = ""
+        var id = ""
+        var refined_category = ""
+        var master_category_id= ""
+        var created_at = ""
+        var updated_at = ""
+    }
+
+    class MasterCategory {
+        var _id = ""
+        var id = ""
+        var master_category = ""
+        var created_at = ""
+        var updated_at = ""
+    }
+
+
 }

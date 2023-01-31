@@ -7,6 +7,7 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import android.util.Base64
 import com.dam.bestexpensetracker.data.constant.Const
+import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -108,5 +109,10 @@ class Utils {
             return String(data)
         }
 
+        fun roundOffDecimal(number: Double): Double? {
+            val df = DecimalFormat("#.#")
+            df.roundingMode = RoundingMode.CEILING
+            return df.format(number).toDouble()
+        }
     }
 }
