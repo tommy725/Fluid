@@ -1,6 +1,12 @@
 # Raycai
 This is an app that manage products.
 
+# Library & Language
+• REST API
+• Firebase Auth Login
+• Retrofit 2.x
+• SQLite local database
+
 # Features
 • Product search
 • Camera 
